@@ -8,7 +8,8 @@ if (params.has("id")) {
   document.location.href = "index.html";
 }
 
-const baseUrl = "https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/";
+const baseUrl =
+  "https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/";
 const characterUrl = `${baseUrl}${id}`;
 
 fetch(characterUrl)
@@ -22,9 +23,6 @@ fetch(characterUrl)
     const loader = document.querySelector(".loader");
     loader.style.display = "none";
   })
-  // .catch(function(error) {
-  //   console.dir(error);
-  // });
   .catch(function() {
     document.location.href = "error.html";
   });
@@ -32,7 +30,6 @@ fetch(characterUrl)
 function characterDetails(json) {
   const character = json;
   const container = document.querySelector(".container");
-  // const loader = document.querySelector(".loader");
 
   const details = `<div class="detail-container">
                         <img class="details-image" src="${character.image}" alt="${character.name}" />
@@ -45,10 +42,4 @@ function characterDetails(json) {
                         </div>
                     </div>`;
   container.innerHTML += details;
-  // console.log(loader);
-
-
-  // const loader = document.querySelector(".loader");
-  // loader.style.display = "none";
-  // container.removeChild(loader);
 }
