@@ -8,13 +8,8 @@ function replaceWords() {
     const formattedHeading = contentH1.innerText.replace(/the/g, "replaced").replace(/The/g, "Replaced");
     let formattedDiv;
 
-    // const formattedDiv = contentDiv.innerText.replace(/the/g, "replaced").replace(/The/g, "Replaced");
-    
-    // contentH1.replace(/the/g, "replaced").replace(/The/g, "Replaced");
-    // contentDiv.replace(/the/g, "replaced").replace(/The/g, "Replaced");
-
     contentH1.innerText = formattedHeading;
-    
+
     contentDiv.forEach(function(div){
         formattedDiv = div.innerText.replace(/the/g, "replaced").replace(/The/g, "Replaced");
         div.innerText = formattedDiv;
@@ -25,12 +20,10 @@ function replaceWords() {
     //     contentDiv[i].innerText = formattedDiv;
     // }
 
-    // contentDiv.innerText = formattedDiv;
+    // console.log(contentH1);
+    // console.log(contentDiv);
 
-    console.log(contentH1);
-    console.log(contentDiv);
-
-    console.log("4 seconds have passed");
+    // console.log("4 seconds have passed");
 }
 
 
