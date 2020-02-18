@@ -2,33 +2,32 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 let id;
 
-if(params.has("id")) {
-    id = params.get("id");
+if (params.has("id")) {
+  id = params.get("id");
 } else {
-    document.location.href = "index.html";
+  document.location.href = "index.html";
 }
 
 const baseUrl = `https://rickandmortyapi.com/api/character/`;
 const characterUrl = `${baseUrl}${id}`;
 
 fetch(characterUrl)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(json) {
-        characterDetails(json);
-    })
-    .catch(function() {
-        document.location.href = "error.html";
-    });
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    characterDetails(json);
+  })
+  .catch(function() {
+    document.location.href = "error.html";
+  });
 
 function characterDetails(json) {
-    const character = json;
-    console.log(json);
-    const container = document.querySelector(".container")
-    let html = "";
+  const character = json;
+  const container = document.querySelector(".container");
+  const loader = document.querySelector(".loader");
 
-    const details = `<div class="detail-container">
+  const details = `<div class="detail-container">
                         <img class="details-image" src="${character.image}" alt="${character.name}" />
                         <div class="detail-details">
                             <h1>${character.name}</h1>
@@ -38,5 +37,10 @@ function characterDetails(json) {
                             <p>Location: <span class="value" id="location">${character.location.name}</span></p>                   
                         </div>
                     </div>`;
-    container.innerHTML += details;
+  container.innerHTML += details;
+  loader.style.display = "none";
+
+  // const loader = document.querySelector(".loader");
+  // loader.style.display = "none";
+  // container.removeChild(loader);
 }

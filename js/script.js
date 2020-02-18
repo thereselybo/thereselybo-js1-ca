@@ -7,16 +7,12 @@ fetch(baseUrl)
     .then(function(json) {
         createCharacter(json);
     })
-    // .catch(function() {
-    //     document.location.href = "error.html";
-    //     });
-    // .catch(function(error) {
-    //     console.log(error);
-    // });
+    .catch(function() {
+        document.location.href = "error.html";
+        });
 
 function createCharacter(json) {
     const results = json.results;
-    console.dir(results);
     const container = document.querySelector(".results");
     let html = "";
 
@@ -46,8 +42,3 @@ function createCharacter(json) {
     })
 
     container.innerHTML = html;
-    
-    // const loader = document.querySelector(".loader");
-    // loader.style.display = "none";
-    // container.removeChild(loader);
-}
