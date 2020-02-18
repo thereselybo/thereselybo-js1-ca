@@ -1,4 +1,4 @@
-const baseUrl = `https://rickandmortyapi.com/api/character/`;
+const baseUrl = "https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/";
 
 fetch(baseUrl)
     .then(function(response) {
@@ -42,3 +42,4 @@ function createCharacter(json) {
     })
 
     container.innerHTML = html;
+}
