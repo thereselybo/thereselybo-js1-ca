@@ -1,33 +1,34 @@
-const baseUrl = "https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/";
+const baseUrl =
+  "https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/";
 
 fetch(baseUrl)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(json) {
-        createCharacter(json);
-    })
-    .catch(function() {
-        document.location.href = "error.html";
-        });
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    createCharacter(json);
+  })
+  .catch(function() {
+    document.location.href = "error.html";
+  });
 
 function createCharacter(json) {
-    const results = json.results;
-    const container = document.querySelector(".results");
-    let html = "";
+  const results = json.results;
+  const container = document.querySelector(".results");
+  let html = "";
 
-    results.forEach(function(character) {
-        const name = character.name; 
-        const imageUrl = character.image;
-        let type;
-        if(character.type) {
-            type = character.type;
-        } else {
-            type = "Unknown";
-        }
-        const episodes = character.episode.length;
+  results.forEach(function(character) {
+    const name = character.name;
+    const imageUrl = character.image;
+    let type;
+    if (character.type) {
+      type = character.type;
+    } else {
+      type = "Unknown";
+    }
+    const episodes = character.episode.length;
 
-        const characterDetails = `<div class="col-sm-6 col-md-4 col-lg-3">                
+    const characterDetails = `<div class="col-sm-6 col-md-4 col-lg-3">                
                                     <div class="card">        
                                         <img class="image" src="${imageUrl}" alt="${name}">
                                         <div class="details">
@@ -38,8 +39,8 @@ function createCharacter(json) {
                                         </div>
                                     </div>
                                 </div>`;
-        html += characterDetails;
-    })
+    html += characterDetails;
+  });
 
-    container.innerHTML = html;
+  container.innerHTML = html;
 }
